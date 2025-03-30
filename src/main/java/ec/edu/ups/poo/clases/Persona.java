@@ -5,7 +5,7 @@ public class Persona {
     private String cedula;
     private String apellido;
     private String direccion;
-    public Persona(){}
+
 
     public Persona(String cedula, String nombre, String apellido, String direccion) {
     this.nombre=nombre;
@@ -13,6 +13,7 @@ public class Persona {
     this.cedula=cedula;
     this.direccion=direccion;
     }
+    public Persona(){}
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -45,5 +46,17 @@ public class Persona {
     public String getCedula() {
         return cedula;
     }
+    public int suma(int num1, int num2){
+        int suma = num1+num2;
+        return suma;
     }
+    @Override
+    public String toString(){
+        return "\t Cedula: "+ cedula+
+                "\n\t Nombre: " + nombre+
+                "\n\t Apellido: " + apellido+
+                "\n\t Direccion: " + direccion;
+
+    }
+}
 

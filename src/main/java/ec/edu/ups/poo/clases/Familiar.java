@@ -1,16 +1,17 @@
 package ec.edu.ups.poo.clases;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Familiar extends Persona{
     private String parentesco;
     private String tipoDeSangre;
-    private Calendar fechaDeNacimiento;
+    private GregorianCalendar fechaDeNacimiento;
 
-    public Familiar(){}
-
-    public Familiar(String cedula,String nombre, String apellido, String direccion, int edad){
+    public Familiar() {
+        super();
+    }
+    public Familiar(String cedula, String nombre, String apellido, String direccion, String parentesco,
+                    String tipoDeSangre, GregorianCalendar fechaDeNacimiento){
         super(cedula,nombre,apellido,direccion);
         this.parentesco=parentesco;
         this.tipoDeSangre=tipoDeSangre;
@@ -36,6 +37,15 @@ public class Familiar extends Persona{
     }
     @Override
     public String toString() {
-        return
+        return super.toString() +
+                ",\n\t Parentesco: " + parentesco +
+                ",\n\t Tipo de sangre: " + tipoDeSangre +
+                ",\n\t Fecha De Nacimiento: " +
+                (fechaDeNacimiento != null ?
+                        fechaDeNacimiento.get(GregorianCalendar.YEAR) + "-" +
+                                (fechaDeNacimiento.get(GregorianCalendar.MONTH) + 1) + "-" +
+                                fechaDeNacimiento.get(GregorianCalendar.DAY_OF_MONTH)
+                        : "No Especificada");
+
     }
 }

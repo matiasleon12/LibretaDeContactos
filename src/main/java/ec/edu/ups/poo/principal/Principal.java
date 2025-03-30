@@ -1,5 +1,6 @@
 package ec.edu.ups.poo.principal;
 
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 import ec.edu.ups.poo.clases.Familiar;
@@ -9,37 +10,74 @@ public class Principal {
 
     public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Ingrese la cantidad de Personas");
-            int n = scanner.nextInt();
-            scanner.nextLine();
-            Persona[] personas = new Persona[n];
-            for (int i = 0; i < n; i++){
-                System.out.println("ingresar los Datos de cada persona");
-                Persona persona = new Persona();
-                System.out.println("nombre: ");
-                persona.setNombre(scanner.nextLine());
-                System.out.println("Apellido: ");
-                persona.setApellido(scanner.nextLine());
-                System.out.println("Cedula: ");
-                persona.setCedula(scanner.nextLine());
-                System.out.println("Direccion: ");
-                persona.setDireccion(scanner.nextLine());
-                personas[i] = persona;
-            }
-            for (int i = 0; i < personas.length; i++) {
-                System.out.println("---------"+"Persona "+ (i+1)+"---------");
-                System.out.println("Nombre: "+personas[i].getNombre());
-                System.out.println("Apellido: "+personas[i].getApellido());
-                System.out.println("Cedula: "+personas[i].getCedula());
-                System.out.println("Direccion: "+personas[i].getDireccion());
+            Persona persona = new Persona();
+            persona.setNombre("juansito");
+            persona.setDireccion("Sigsig");
+            persona.setCedula("010101");
+            persona.setApellido("Marciano");
 
-                Familiar familiar=new Familiar();
-                familiar.setCedula("0101010");
-                familiar.setNombre("Nombre 1");
-                familiar.setApellido("Apellido 1");
-                familiar.setDireccion("Familiar Direccion");
-                familiar.setParentesco("");
+
+            System.out.println("Ingresar la cantidad de Personas");
+            int cantPersonas = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.println("Ingresar la cantidad de familiares");
+            int cantidadFamiliares = scanner.nextInt();
+            scanner.nextLine();
+
+            Persona[] personas = new Persona[cantPersonas];
+            Familiar[] familiares = new Familiar[cantidadFamiliares];
+
+            for (int i = 0; i < cantPersonas; i++){
+                System.out.println("ingresar los Datos de cada persona " + (i+1) + ":");
+                System.out.println("nombre: ");
+                String nombre = scanner.nextLine();
+                System.out.println("Apellido: ");
+                String apellido = scanner.nextLine();
+                System.out.println("Cedula: ");
+                String cedula = scanner.nextLine();
+                System.out.println("Direccion: ");
+                String direccion = scanner.nextLine();
+
+                personas[i] = new Persona(cedula, nombre, apellido, direccion);
+            }
+
+            for (int i = 0; i < cantidadFamiliares; i++){
+                System.out.println("\nIngrese los datos del familiar " + (i+1)+ ":");
+                System.out.println("Nombre:");
+                String nombre = scanner.nextLine();
+                System.out.println("Apellido:");
+                String apellido = scanner.nextLine();
+                System.out.println("Cedula:");
+                String cedula = scanner.nextLine();
+                System.out.println("Direccion: ");
+                String direccion = scanner.nextLine();
+                System.out.println("Parentesco: ");
+                String parentesco = scanner.nextLine();
+                System.out.println("Tipo de sangre: ");
+                String tipoSangre = scanner.nextLine();
+                System.out.println("Dia de nacimiento (1-31): ");
+                int dia = scanner.nextInt();
+                System.out.println("Mes de nacimiento(1-12): ");
+                int mes = scanner.nextInt() -1;
+                System.out.println("Año de nacimiento: ");
+                int anio = scanner.nextInt();
+                scanner.nextLine();
+
+                GregorianCalendar fechaNac = new GregorianCalendar(anio, mes, dia);
+                familiares[i] = new Familiar(cedula, nombre, apellido, direccion, parentesco, tipoSangre, fechaNac);
+
+            }
+            System.out.println("\n=== LISTA DE PERSONAS ===");
+            for (int i=0;i< personas.length;i++){
+                System.out.println(personas[i]);
+                System.out.println("-----------------------------------------");
+            }
+            System.out.println("\n=== LISTA DE FAMILIARES ===");
+            for (int i = 0; i < familiares.length; i++){
+                System.out.println(familiares[i]);
+                System.out.println("------------------------------------------");
+            scanner.close();
             }
     }
 }
-
