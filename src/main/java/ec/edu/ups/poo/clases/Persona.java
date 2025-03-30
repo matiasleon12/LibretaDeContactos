@@ -1,5 +1,5 @@
 package ec.edu.ups.poo.clases;
-
+// buena impresion
 public class Persona {
     private String nombre;
     private String cedula;
