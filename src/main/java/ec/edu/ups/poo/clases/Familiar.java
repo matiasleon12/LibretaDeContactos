@@ -1,7 +1,8 @@
 package ec.edu.ups.poo.clases;
 
 import java.util.GregorianCalendar;
-// debe mejorar
+// NO FUNCIONA EL CODIGO
+// FALTA CODIGO
 public class Familiar extends Persona{
     private String parentesco;
     private String tipoDeSangre;
