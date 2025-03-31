@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 // FALTA CODIGO
 // falta
 // sapo perro
+// sapooooo
 public class Familiar extends Persona{
     private String parentesco;
     private String tipoDeSangre;
